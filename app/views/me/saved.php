@@ -7,7 +7,7 @@
                 </div>
                 <!-- i like information -->
                 <div class="elements-group-i">
-                    <a href="/<?= $product["category"] ?>/<?= $product["denomination"] ?>/<?= $product["id"] ?>"
+                    <a href="/product/<?= $product["id"] ?>"
                        class="elements-group-title"><h3><?= $product["appellation"] ?></h3></a>
                     <span class="elements-group-price">$<?= $product["price"] ?></span>
                 </div>

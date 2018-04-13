@@ -37,8 +37,14 @@ return [
 
     '^all$' => 'product/index/all',
     '^men$' => 'product/index/men',
-    '^men/hoodies$' => 'product/denomination/men/hoodies',
-    '^men/hoodies/([0-9]+)$' => 'product/view/men/hoodies/$1',
+
+    // Просмотр одного товара
+    '^product/([0-9]+)$' => 'product/view/$1',
+
+
+    // Роутеры для фильтра ["category","denomination"]
+    '^men/all$' => 'product/denomination/men/all',
+    '^women/all$' => 'product/denomination/women/all',
 
 //    '^men/hoodies/([0-9]+)$' => 'category/test/men/hoodies/$1',
 //    '^men/([0-9]+)$' => 'category/view/men/$1',

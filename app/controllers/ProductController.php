@@ -13,21 +13,27 @@ class ProductController extends Controller
 {
     public function indexAction($category)
     {
+        $product = new Product();
+        $products = $product->getAllProducts();
         $this->view->menu = "alpha";
         $this->view->render("category/index", [
-            "category" => $category
+            "products" => $products
         ]);
     }
 
-    public function denomination($category, $denomination)
+    public function denominationAction($category, $denomination)
     {
+        $product = new Product();
+        $product->denomination = $denomination;
+        $product->category = $category;
+        $products = $product->getProductsByDenominationAndCategory();
+        $this->view->menu = "alpha";
         $this->view->render("denomination/index", [
-            "category" => $category,
-            "denomination" => $denomination
+            "products" => $products
         ]);
     }
 
-    public function viewAction($category, $denomination, $id)
+    public function viewAction($id)
     {
         $this->view->menu = "opened";
 

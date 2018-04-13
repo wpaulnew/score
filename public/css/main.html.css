@@ -192,6 +192,8 @@ body {
 .product-title h4 {
     margin: 2px 0 5px 0;
     text-align: center;
+    text-decoration: none;
+    color: #212121;
 }
 
 .product-title > a {

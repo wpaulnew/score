@@ -3,19 +3,20 @@
         <h3>T SHIRTS</h3>
     </header>
     <div class="product-roll-list">
+        <?php foreach ($products as $product) : ?>
+            <!-- Отдельный класс товара -->
+            <div class="product product-roll-product">
+                <div class="product-img">
+                    <img src="/public/img/<?php echo $product["img"]; ?>" alt="">
+                </div>
+                <a href="/product/<?php echo $product["id"]; ?>" class="product-title">
+                    <h4><?php echo $product["appellation"]; ?></h4></a>
+                <p class="product-price"><?php echo $product["price"]; ?></p>
 
-        <!-- Отдельный класс товара -->
-        <div class="product product-roll-product">
-            <div class="product-img">
-                <img src="/public/img/product.png" alt="">
+                <!--            <a href="#" data-id="1" class="do-link-remove-from-saved"><span class="lnr lnr-cross-circle"></span></a>-->
             </div>
-            <a href="/men/hoodies/1" class="product-title"><h4>V-Shape</h4></a>
-            <p class="product-price">$24.40</p>
-
-            <!--            <a href="#" data-id="1" class="do-link-remove-from-saved"><span class="lnr lnr-cross-circle"></span></a>-->
-        </div>
-        <!-- /Отдельный класс товара -->
-
+            <!-- /Отдельный класс товара -->
+        <?php endforeach; ?>
     </div>
 </div>
 
@@ -27,12 +28,14 @@
         var answer = selected.split("&");
         var links = [];
         $.each(answer, function (i) {
-//            console.log(answer);
             var difference = answer[i].split("=");
             links.push(difference.splice(1));
         });
         var link = "/" + links.join("/");
-        alert(link);
+
+        // Перенаправляем по ссылке
+//        alert(link);
+        window.location.href = link;
     });
 
 </script>

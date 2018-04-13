@@ -20,6 +20,8 @@ class Product extends Model
     public $category;
     public $ended = 0;
 
+    private $table = "products";
+
     // Получаем информацию о продукте
     public function getProductById()
     {
@@ -31,6 +33,11 @@ class Product extends Model
         return $this->getRows("SELECT * FROM products WHERE category = ?", [$this->category]);
     }
 
+    // Получаем все продукты от последних добаленых
+    public function getAllProducts() {
+        return $this->getRows("SELECT * FROM $this->table ORDER BY `id` DESC");
+    }
+
     // Получаем информацию о продуктах из базы
     public function getProductsByIds($ids)
     {
@@ -40,5 +47,9 @@ class Product extends Model
         } catch (\Exception $exception) {
             echo "Товары по ids не выбраны " . $exception->getMessage();
         }
+    }
+
+    public function getProductsByDenominationAndCategory() {
+        return $this->getRows("SELECT * FROM `products` WHERE `denomination` = ? AND `category` = ?", [$this->denomination, $this->category]);
     }
 }
