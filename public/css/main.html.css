@@ -907,11 +907,9 @@ body {
     margin: 0;
 }
 
-.order-title {
-    margin: 0;
-    font-size: 0.7em;
+.order-title > h3 {
+    font-size: 0.55em;
     padding: 0 10px 0 10px;
-    font-weight: normal;
 }
 
 /* /PROFILE ORDERS */

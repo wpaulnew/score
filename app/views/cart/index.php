@@ -38,7 +38,13 @@
     </div>
 </div>
 
-
+<script>
+    $(document).ready(function () {
+        $(".btn-checkout").click(function () {
+            window.location.href = "/order";
+        });
+    });
+</script>
 <script>
     $(document).ready(function () {
         $(".do-link-remove-fro-cart").on("click", function (event) {

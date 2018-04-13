@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 13 2018 г., 09:17
+-- Время создания: Апр 13 2018 г., 21:07
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.6.30
 
@@ -29,8 +29,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
   `client` int(11) NOT NULL,
-  `product` int(11) NOT NULL
+  `product` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL DEFAULT '0',
+  `code` varchar(256) NOT NULL COMMENT 'code группы товаров',
+  `processed` int(1) NOT NULL DEFAULT '0' COMMENT '1-выполнено 0-впроцесе отправки'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `cart`
+--
+
+INSERT INTO `cart` (`id`, `client`, `product`, `quantity`, `code`, `processed`) VALUES
+(1, 1, 4, 3, 'ad61ab143223efbc24c7d2583be69251', 1),
+(2, 1, 1, 3, 'ad61ab143223efbc24c7d2583be69251', 0),
+(3, 1, 2, 3, 'ad61ab143223efbc24c7d2583be69251', 1),
+(4, 1, 3, 1, 'ad61ab143223efbc24c7d2583be69251', 1);
 
 -- --------------------------------------------------------
 
@@ -95,10 +108,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `appellation`, `denomination`, `category`, `img`, `price`, `ended`) VALUES
-(1, 'INSPIRE TRAVEL LEARN T SHIRT - \"THE SKETCH\" [BLACK]', 'hoodies', 'men', 'product.png', '24.40', 0),
-(2, 'Road to the Dream V-shape Logo Худи – Бордовый', 'hoodies', 'men', 'product.png', '24.40', 0),
-(3, 'INSPIRE BLACK REX', 'hoodies', 'men', 'hoodie.png', '52.40', 0),
-(4, 'INSPIRE CUP', 'hoodies', 'men', 'cup.png', '24.40', 0);
+(1, 'INSPIRE TRAVEL LEARN T SHIRT - \"THE SKETCH\" [BLACK]', 'all', 'men', 'product.png', '24.40', 0),
+(2, 'Road to the Dream V-shape Logo Худи – Бордовый', 'all', 'men', 'product.png', '24.40', 0),
+(3, 'INSPIRE BLACK REX', 'all', 'men', 'hoodie.png', '52.40', 0),
+(4, 'INSPIRE CUP', 'all', 'women', 'cup.png', '24.40', 0);
 
 -- --------------------------------------------------------
 
@@ -131,6 +144,14 @@ CREATE TABLE `saved` (
   `client` int(11) NOT NULL,
   `product` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `saved`
+--
+
+INSERT INTO `saved` (`id`, `client`, `product`) VALUES
+(128, 1, 4),
+(129, 2, 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -180,7 +201,7 @@ ALTER TABLE `saved`
 -- AUTO_INCREMENT для таблицы `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT для таблицы `clients`
 --
@@ -205,7 +226,7 @@ ALTER TABLE `request`
 -- AUTO_INCREMENT для таблицы `saved`
 --
 ALTER TABLE `saved`
-  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Order;
 use app\models\Saved;
 use vendor\core\Controller;
 use vendor\libs\Post;
@@ -14,8 +15,15 @@ class MeController extends Controller
         if (!Session::isSession("id")) {
             $this->redirect("http://" . DEFAULT_LINK . "/login");
         }
+
+        $order = new Order();
+        $order->client = Session::get("id");
+        $orders = $order->getOrdersByClient();
+
         $this->view->menu = "client";
-        $this->view->render('me/index');
+        $this->view->render('me/index', [
+            "orders" => $orders
+        ]);
         return true;
     }
 

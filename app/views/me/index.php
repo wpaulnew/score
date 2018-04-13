@@ -1,35 +1,32 @@
 <h1 style="margin-top: 78px">
-
-    <div class="me-p-box">
-        <div class="me-p-name">
-            <p><?php echo $_SESSION["name"]; ?></p>
-        </div>
-        <div class="me-p-orders">
-            <div class="product">
-                <div class="product-img">
-                    <img src="/public/img/product.png" alt="">
+    <div class="saved-elements">
+        <?php
+//        echo "<pre>";
+//        print_r($orders);
+        ?>
+        <?php foreach ($orders as $order) : ?>
+            <div class="saved-elements-group" id="remove-4">
+                <div class="elements-group-img">
+                    <img src="/public/img/<?php echo $order["img"]; ?>" alt="">
                 </div>
-                <h4 class="order-title">Road to the Dream V-Shape</h4>
-                <p class="product-price">$24.40</p>
-                <p class="order-state">Обрабатываеться</p>
-            </div>
-            <div class="product">
-                <div class="product-img">
-                    <img src="/public/img/product.png" alt="">
+                <!-- i like information -->
+                <div class="elements-group-i">
+                    <a href="/product/<?php echo $order["id"]; ?>" class="elements-group-title order-title">
+                        <h3><?php echo $order["appellation"]; ?></h3></a>
                 </div>
-                <h4 class="order-title">Road to the Dream V-Shape</h4>
-                <p class="product-price">$24.40</p>
-                <p class="order-state">Отправлен</p>
+                <div class="elements-group-control">
+                    <h3><?php echo $order["processed"] == 0 ? "Обрабатываеться" : "Отравлен"; ?></h3>
+                </div>
             </div>
-        </div>
+        <?php endforeach; ?>
     </div>
-<!--
-    Отображаем в низу заказы
-    заказы будут по фильтру, последние в верху.
-    У заказов будет состояние ( обрабатываеться, отправлен )
-    Изменения состояния я зименяю из админки, когда
-    работаю с товором
- -->
+    <!--
+        Отображаем в низу заказы
+        заказы будут по фильтру, последние в верху.
+        У заказов будет состояние ( обрабатываеться, отправлен )
+        Изменения состояния я зименяю из админки, когда
+        работаю с товором
+     -->
     <?php
     echo "<pre>";
     print_r($_SESSION);
