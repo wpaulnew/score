@@ -1,0 +1,1 @@
+<h1>CATEGORY <?php echo $category; ?> DENOMINATION <?php echo $denomination; ?></h1>

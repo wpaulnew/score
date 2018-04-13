@@ -1,0 +1,61 @@
+h1 {
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+}
+
+h3 {
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+}
+
+p {
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+blockquote {
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+pre {
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}
+
+@font-face {
+    font-family: 'wf_SegoeUILight';
+    src: url('http://i.s-microsoft.com/fonts/Segoe-UI/Cyrillic/Light/latest.eot');
+    src: url('http://i.s-microsoft.com/fonts/Segoe-UI/Cyrillic/Light/latest.eot?#iefix') format('embedded-opentype'),
+        /*url('http://i.s-microsoft.com/fonts/Segoe-UI/Cyrillic/Light/latest.woff') format('woff'),*/
+    url('./fonts/latest.woff') format('woff'),
+        /*url('http://i.s-microsoft.com/fonts/Segoe-UI/Cyrillic/Light/latest.ttf') format('truetype'),*/
+    url('./fonts/latest.ttf') format('truetype'),
+    url('http://i.s-microsoft.com/fonts/Segoe-UI/Cyrillic/Light/latest.svg#web') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "wf_SegoeUILight";
+}

@@ -1,0 +1,126 @@
+@import "Segoe UI.css";
+
+.img-l {
+    width: 100%;
+    height: auto;
+    padding: 14px 0 14px 0;
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+}
+
+.menu {
+    padding: 14px 0 14px 0;
+}
+
+.menu-l {
+    text-decoration: none;
+    color: #212121;
+    /*padding: 0 7.5px 0 7.5px;*/
+}
+
+.denominations {
+    display: flex;
+    flex-direction: column;
+    padding: 14px 0 14px 0;
+}
+
+.denomination-l {
+    text-decoration: none;
+    color: #212121;
+    font-size: 11px;
+}
+
+.denomination-l:hover {
+    color: #a7a7a7;
+}
+
+.products {
+    padding: 14px 0 14px 0;
+}
+
+.product-title {
+    font-weight: 500;
+}
+
+.product-price {
+    font-size: 13px;
+}
+
+.product-img {
+    border-radius: 2px;
+}
+
+.icon-search {
+    text-decoration: none;
+    color: #212121;
+    padding: 0 7.5px 0 7.5px;
+}
+
+.icon-card {
+    text-decoration: none;
+    color: #212121;
+    padding: 0 7.5px 0 7.5px;
+}
+
+.select-size {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#cart {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#count {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.product-description {
+    padding: 14px 0 14px;
+}
+
+.btn-order {
+    width: 100%;
+}
+
+.honor-input {
+    box-sizing: border-box;
+    margin: 0 0 14px 0;
+    width: 100%;
+}
+
+.btn-honor {
+    width: 100%;
+}
+
+.bottom-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 52px;
+    background: #FFFFFF;
+}
+
+.menu-l span, .icon-card span {
+    font-size: 1.24em;
+}
+
+.strainer-menu {
+    z-index: 1;
+    background: #cccccc;
+    position: fixed;
+    width: 100%;
+    top: 60px;
+    bottom: 52px;
+    left: 0;
+    display: none;
+}
+.open-strainer-menu, .close-strainer-menu {
+    font-size: 1.24em;
+}
