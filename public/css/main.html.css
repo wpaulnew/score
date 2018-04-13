@@ -49,7 +49,6 @@ body {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    min-height: auto;
     background: #f9f9f9;
     border: none;
 
@@ -121,7 +120,6 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: distribute;
     justify-content: space-around;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -143,7 +141,7 @@ body {
 .main-center-img {
     margin-top: 58px;
 
-    background-image: url("http://192.168.1.166/public/img/main.jpg");
+    background-image: url("http://localhost/public/img/main.jpg");
     width: 100%;
     min-height: 211px;
     -moz-background-size: 100%; /* Firefox 3.6+ */
@@ -375,7 +373,6 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: distribute;
     justify-content: space-around;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -630,7 +627,6 @@ body {
     flex-direction: row;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -ms-flex-line-pack: start;
     align-content: flex-start;
 
     padding: 15px 15px 0 15px;
@@ -873,6 +869,7 @@ body {
     font-weight: bold;
 }
 
+/* PROFILE ORDERS */
 .me-p-box {
 
 }
@@ -911,3 +908,5 @@ body {
     padding: 0 10px 0 10px;
     font-weight: normal;
 }
+
+/* /PROFILE ORDERS */

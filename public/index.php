@@ -19,31 +19,17 @@ define('PUBLIC', dirname(__DIR__) . '/public');
 define('IMG', dirname(__DIR__) . '/public/img');
 
 
-define('DEFAULT_LINK', '192.168.1.166');
-
+define('DEFAULT_LINK', '192.168.1.89');
 
 /**
  * Autoload
  */
-//require dirname(__DIR__) . '/public/autoloader.php';
-//
-//// задаем соответствие для неймспейса Model и регистрируем автозагрузчик
-//$autoloader = new NamespaceAutoloader();
-//$autoloader->addNamespace('vendor\core', VENDOR_CORE . '/');
-//$autoloader->addNamespace('app\models', APP . '/models');
-//$autoloader->register();
-//
-//define("ROOT", dirname(__DIR__));
 
 spl_autoload_register(function ($class) {
     $path = dirname(dirname(__FILE__)) . '/' . str_replace('\\', '/', $class);
     require($path . '.php');
     spl_autoload($path);
 });
-
-/**
- * Error and Exception handling
- */
 
 /**
  * Run app
@@ -54,7 +40,6 @@ function getComponent($name)
     require_once(VIEWS . '/components/' . $name . '.php');
 }
 
-//require_once(APP . '/core/Router.php');
 $routes = require_once(VENDOR . '/settings/routes.php');
 $router = new \vendor\core\Router($routes);
 $router->run();
