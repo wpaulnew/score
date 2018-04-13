@@ -4,14 +4,13 @@
     <!-- Если такой товар есть в закладках то собзить об этом -->
     <div class="bookmark-group">
         <?php if ($reply["saved"]) : ?>
-            <a href="<?= $reply["id"] ?>" id="remove-from-saved" class="do-link-bookmark svg-bold"><span
-                        class="lnr lnr-bookmark"></span></a>
+            <a href="<?= $reply["id"] ?>" id="remove-from-saved" class="do-link-bookmark svg-bold"><span class="lnr lnr-bookmark"></span></a>
+            <a href="<?= $reply["id"] ?>" id="add-to-saved" style="display: none;" class="do-link-bookmark"><span class="lnr lnr-bookmark"></span></a>
         <?php else : ?>
-            <a href="<?= $reply["id"] ?>" id="add-to-saved" class="do-link-bookmark"><span
-                        class="lnr lnr-bookmark"></span></a>
+            <a href="<?= $reply["id"] ?>" id="add-to-saved" class="do-link-bookmark"><span class="lnr lnr-bookmark"></span></a>
+            <a href="<?= $reply["id"] ?>" id="remove-from-saved" style="display: none;" class="do-link-bookmark svg-bold"><span class="lnr lnr-bookmark"></span></a>
         <?php endif; ?>
     </div>
-    <!-- Создать подобуую ссылку, с id remove-from-saved -->
 </div>
 
 <script>
@@ -49,11 +48,8 @@
                 }
             },
             success: function (reply) {
-                $(".do-link-bookmark").attr("id", "remove-from-saved").addClass(" svg-bold");
-//                $(".do-link-bookmark").addClass(" svg-bold");
-
-//                $(".bookmark-group").html('<a href="' + id + '" id="remove-from-saved" class="do-link-bookmark svg-bold"><span\n' +
-//                    '                        class="lnr lnr-bookmark"></span></a>');
+                $("#add-to-saved").css("display", "none");
+                $("#remove-from-saved").css("display","block");
             }
         });
     });
@@ -69,9 +65,8 @@
                 }
             },
             success: function (reply) {
-                $(".do-link-bookmark").attr("id", "add-to-saved").removeClass(" svg-bold");
-//                $(".do-link-bookmark").removeClass(" svg-bold");
-//                $(".bookmark-group").html('<a href="' + id + '" id="add-to-saved" class="do-link-bookmark"><span class="lnr lnr-bookmark"></span></a>');
+                $("#remove-from-saved").css("display","none");
+                $("#add-to-saved").css("display", "block");
             }
         });
     });
