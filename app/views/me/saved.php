@@ -1,7 +1,7 @@
 <div class="saved">
     <div class="saved-elements">
         <?php foreach ($reply as $product): ?>
-            <div class="saved-elements-group">
+            <div class="saved-elements-group" id="remove-<?php echo $product["id"]; ?>">
                 <div class="elements-group-img">
                     <img src="/public/img/<?= $product["img"] ?>" alt="">
                 </div>
@@ -19,10 +19,6 @@
         <?php endforeach; ?>
     </div>
 </div>
-<?php
-//echo "<pre>";
-//print_r($reply);
-?>
 <script>
     $(".link-remove-from-saved").on("click", function (e) {
         e.preventDefault();
@@ -36,7 +32,7 @@
                 }
             },
             success: function (reply) {
-                console.log(reply);
+                $("#remove-" + id).css("display", "none");
             }
         });
     });

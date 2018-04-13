@@ -1,7 +1,6 @@
 <div class="header-control-elements another-menu">
     <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="do-link-back"><span class="lnr lnr-arrow-left"></span></a>
     <a href="/"><img src="/public/img/l.mini.png" alt=""></a>
-    <!-- Если такой товар есть в закладках то собзить об этом -->
     <div class="bookmark-group">
         <?php if ($reply["saved"]) : ?>
             <a href="<?= $reply["id"] ?>" id="remove-from-saved" class="do-link-bookmark svg-bold"><span class="lnr lnr-bookmark"></span></a>
@@ -79,7 +78,6 @@
             $.post("http://localhost/cart/add/" + id, {}, function (reply) {
                 console.log(reply);
                 $("#add-to-cart").html('<span class="lnr lnr-checkmark-circle"></span>');
-//                $("#count-products").html(reply);
             });
             return false;
         });

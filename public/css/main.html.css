@@ -186,14 +186,17 @@ body {
 
 .product-title {
     text-decoration: none;
-    color: #212121;
-
     text-align: center;
 }
 
 .product-title h4 {
     margin: 2px 0 5px 0;
     text-align: center;
+}
+
+.product-title > a {
+    color: #212121;
+    text-decoration: none;
 }
 
 .product-price {
