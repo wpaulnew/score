@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Product;
 use app\models\Saved;
 use vendor\core\Controller;
+use vendor\libs\Session;
 
 /**
  * Отвечает за меню категори, то есть ( мужчина, женщина, аксессуары )
@@ -51,8 +52,16 @@ class ProductController extends Controller
             $reply["saved"] = true;
         }
 
+        $incart = false;
+        if (Session::isSession("products")) {
+            if (array_key_exists($id, Session::get("products"))) {
+                $incart = true;
+            }
+        }
+
         $this->view->render("id/index", [
-            "reply" => $reply
+            "reply" => $reply,
+            "incart" => $incart
         ]);
     }
 

@@ -159,7 +159,7 @@
     });
 </script>
 <!-- /SEARCH MENU -->
-
+<script>var DEFAULT_LINK = "192.168.0.89";</script>
 <?php
 foreach ($scripts as $script) {
     echo $script;

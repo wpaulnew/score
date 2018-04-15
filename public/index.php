@@ -19,7 +19,7 @@ define('PUBLIC', dirname(__DIR__) . '/public');
 define('IMG', dirname(__DIR__) . '/public/img');
 
 
-define('DEFAULT_LINK', 'localhost');
+define('DEFAULT_LINK', '192.168.0.89');
 
 /**
  * Autoload

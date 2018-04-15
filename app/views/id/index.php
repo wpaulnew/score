@@ -3,11 +3,15 @@
     <a href="/"><img src="/public/img/l.mini.png" alt=""></a>
     <div class="bookmark-group">
         <?php if ($reply["saved"]) : ?>
-            <a href="<?= $reply["id"] ?>" id="remove-from-saved" class="do-link-bookmark svg-bold"><span class="lnr lnr-bookmark"></span></a>
-            <a href="<?= $reply["id"] ?>" id="add-to-saved" style="display: none;" class="do-link-bookmark"><span class="lnr lnr-bookmark"></span></a>
+            <a href="<?= $reply["id"] ?>" id="remove-from-saved" class="do-link-bookmark svg-bold"><span
+                        class="lnr lnr-bookmark"></span></a>
+            <a href="<?= $reply["id"] ?>" id="add-to-saved" style="display: none;" class="do-link-bookmark"><span
+                        class="lnr lnr-bookmark"></span></a>
         <?php else : ?>
-            <a href="<?= $reply["id"] ?>" id="add-to-saved" class="do-link-bookmark"><span class="lnr lnr-bookmark"></span></a>
-            <a href="<?= $reply["id"] ?>" id="remove-from-saved" style="display: none;" class="do-link-bookmark svg-bold"><span class="lnr lnr-bookmark"></span></a>
+            <a href="<?= $reply["id"] ?>" id="add-to-saved" class="do-link-bookmark"><span
+                        class="lnr lnr-bookmark"></span></a>
+            <a href="<?= $reply["id"] ?>" id="remove-from-saved" style="display: none;"
+               class="do-link-bookmark svg-bold"><span class="lnr lnr-bookmark"></span></a>
         <?php endif; ?>
     </div>
 </div>
@@ -31,7 +35,12 @@
 </div>
 
 <div class="product-order-menu">
-    <button class="btn-add-to-cart" data-id="<?= $reply["id"] ?>" id="add-to-cart">ADD TO CART</button>
+    <?php if ($incart) : ?>
+        <button class="btn-add-to-cart btn-none-active" disabled><span
+                    class="lnr lnr-checkmark-circle span-none-active"></span></button>
+    <?php else : ?>
+        <button class="btn-add-to-cart" data-id="<?= $reply["id"] ?>" id="add-to-cart">ADD TO CART</button>
+    <?php endif; ?>
 </div>
 
 <script>
@@ -48,7 +57,7 @@
             },
             success: function (reply) {
                 $("#add-to-saved").css("display", "none");
-                $("#remove-from-saved").css("display","block");
+                $("#remove-from-saved").css("display", "block");
             }
         });
     });
@@ -64,7 +73,7 @@
                 }
             },
             success: function (reply) {
-                $("#remove-from-saved").css("display","none");
+                $("#remove-from-saved").css("display", "none");
                 $("#add-to-saved").css("display", "block");
             }
         });
@@ -75,9 +84,10 @@
     $(document).ready(function () {
         $("#add-to-cart").on("click", function () {
             var id = $(this).attr("data-id");
-            $.post("http://localhost/cart/add/" + id, {}, function (reply) {
-                console.log(reply);
-                $("#add-to-cart").html('<span class="lnr lnr-checkmark-circle"></span>');
+            $.post("http://" + DEFAULT_LINK + "/cart/add/" + id, {}, function (reply) {
+                $("#add-to-cart").html('<span class="lnr lnr-checkmark-circle span-none-active"></span>');
+                $('#add-to-cart').prop('disabled', true);
+                $('#add-to-cart').addClass("btn-none-active");
             });
             return false;
         });
