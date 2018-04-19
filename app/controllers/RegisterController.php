@@ -19,12 +19,6 @@ class RegisterController extends Controller
             $register->email = Post::get("email");
             $register->password = Post::get("password");
 
-            /**
-             * Проверяем данные
-             * если такой login уже существует то возвращаем ошибку
-             * об этом, если нет регестрируем
-             */
-
             // Проверяем на существования логин
             if ($register->isClientByLogin()) {
                 $exit = [
@@ -32,7 +26,6 @@ class RegisterController extends Controller
                 ];
                 exit(json_encode($exit));
             }
-
 
             $register->register();
             $information = $register->getAllByLoginAndPassword();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 13 2018 г., 21:07
+-- Время создания: Апр 19 2018 г., 14:59
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.6.30
 
@@ -40,10 +40,30 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `client`, `product`, `quantity`, `code`, `processed`) VALUES
-(1, 1, 4, 3, 'ad61ab143223efbc24c7d2583be69251', 1),
-(2, 1, 1, 3, 'ad61ab143223efbc24c7d2583be69251', 0),
-(3, 1, 2, 3, 'ad61ab143223efbc24c7d2583be69251', 1),
-(4, 1, 3, 1, 'ad61ab143223efbc24c7d2583be69251', 1);
+(1, 1, 4, 3, 'd09bf41544a3365a46c9077ebb5e35c3', 0),
+(2, 1, 4, 3, '19ca14e7ea6328a42e0eb13d585e4c22', 0),
+(3, 1, 1, 3, '9a1158154dfa42caddbd0694a4e9bdc8', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `forwhat` varchar(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `category`
+--
+
+INSERT INTO `category` (`id`, `title`, `forwhat`) VALUES
+(1, 'all', 'monthly'),
+(2, 'hoodies', 'yearly'),
+(3, 'cups', 'cups');
 
 -- --------------------------------------------------------
 
@@ -86,6 +106,26 @@ CREATE TABLE `denominations` (
 
 INSERT INTO `denominations` (`id`, `appellation`) VALUES
 (1, 'Hoodies');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `gender`
+--
+
+CREATE TABLE `gender` (
+  `id` int(11) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `forwhat` varchar(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `gender`
+--
+
+INSERT INTO `gender` (`id`, `title`, `forwhat`) VALUES
+(1, 'men', 'free'),
+(2, 'women', 'basic');
 
 -- --------------------------------------------------------
 
@@ -150,7 +190,8 @@ CREATE TABLE `saved` (
 --
 
 INSERT INTO `saved` (`id`, `client`, `product`) VALUES
-(128, 1, 4),
+(135, 2, 4),
+(141, 1, 2),
 (129, 2, 1);
 
 --
@@ -164,6 +205,12 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `clients`
 --
 ALTER TABLE `clients`
@@ -173,6 +220,12 @@ ALTER TABLE `clients`
 -- Индексы таблицы `denominations`
 --
 ALTER TABLE `denominations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `gender`
+--
+ALTER TABLE `gender`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -201,7 +254,12 @@ ALTER TABLE `saved`
 -- AUTO_INCREMENT для таблицы `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT для таблицы `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT для таблицы `clients`
 --
@@ -212,6 +270,11 @@ ALTER TABLE `clients`
 --
 ALTER TABLE `denominations`
   MODIFY `id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT для таблицы `gender`
+--
+ALTER TABLE `gender`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
@@ -226,7 +289,7 @@ ALTER TABLE `request`
 -- AUTO_INCREMENT для таблицы `saved`
 --
 ALTER TABLE `saved`
-  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -2,20 +2,46 @@
 
 namespace app\controllers;
 
+use app\models\Menu;
 use app\models\Product;
 use app\models\Saved;
 use vendor\core\Controller;
 use vendor\libs\Session;
 
-/**
- * Отвечает за меню категори, то есть ( мужчина, женщина, аксессуары )
- */
 class ProductController extends Controller
 {
     public function indexAction($category)
     {
         $product = new Product();
         $products = $product->getAllProducts();
+
+        if ($this->isAjax()) {
+            $menu = new Menu();
+
+            $genders = $menu->getAllGenders();
+            $categories = $menu->getAllCategories();
+
+            $listOfGender = "";
+            foreach ($genders as $index => $value) {
+                $listOfGender .= "<input type='radio' name='gender' id='{$value["forwhat"]}' value='{$value["title"]}'><label class='basic-label four col' for='{$value["forwhat"]}'>{$value["title"]}</label>";
+            }
+
+            $listOfCategories = "";
+            foreach ($categories as $index => $value) {
+                $listOfCategories .= "<input type='radio' name='denomination' id='{$value["forwhat"]}' value='{$value["title"]}'><label class='monthly-label four col' for='{$value["forwhat"]}'>{$value["title"]}</label>";
+            }
+
+            $exit = [
+                "genders" => [
+                    $listOfGender
+                ],
+                "categories" => [
+                    $listOfCategories
+                ]
+            ];
+            exit(json_encode($exit));
+        }
+
         $this->view->menu = "alpha";
         $this->view->render("category/index", [
             "products" => $products
@@ -28,6 +54,15 @@ class ProductController extends Controller
         $product->denomination = $denomination;
         $product->category = $category;
         $products = $product->getProductsByDenominationAndCategory();
+
+        if ($this->isAjax()) {
+//            $menu = new Menu();
+//            $men = $menu->getAllCategoryWithGenderMen();
+//            var_dump($men);
+            echo "1";
+            exit();
+        }
+
         $this->view->menu = "alpha";
         $this->view->render("denomination/index", [
             "products" => $products

@@ -47,6 +47,21 @@
         $("#a-menu").css("display", "flex");
         $("html").css("overflow-y", "hidden");
         $(".alpha-menu").css("display", "flex");
+
+        $.ajax({
+            type: "POST",
+            data: {
+                "section": true
+            },
+            success: function (reply) {
+//                console.log(reply);
+                var json = JSON.parse(reply);
+//                console.log(json);
+                $("#section-a").html('<h4 class="plan-titles">Gender</h4>' + json.genders);
+                $("#section-b").html('<h4 class="plan-titles">Category of goods</h4>' + json.categories);
+            }
+        });
+
     });
 
     $("#close-alpha").on("click", function () {

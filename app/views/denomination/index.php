@@ -4,17 +4,18 @@
     </header>
     <div class="product-roll-list">
         <?php foreach ($products as $product) : ?>
-        <!-- Отдельный класс товара -->
-        <div class="product product-roll-product">
-            <div class="product-img">
-                <img src="/public/img/<?php echo $product["img"]; ?>" alt="">
-            </div>
-            <a href="/product/<?php echo $product["id"]; ?>" class="product-title"><h4><?php echo $product["appellation"];?></h4></a>
-            <p class="product-price"><?php echo $product["price"]; ?></p>
+            <!-- Отдельный класс товара -->
+            <div class="product product-roll-product">
+                <div class="product-img">
+                    <img src="/public/img/<?php echo $product["img"]; ?>" alt="">
+                </div>
+                <a href="/product/<?php echo $product["id"]; ?>" class="product-title">
+                    <h4><?php echo $product["appellation"]; ?></h4></a>
+                <p class="product-price"><?php echo $product["price"]; ?></p>
 
-            <!--            <a href="#" data-id="1" class="do-link-remove-from-saved"><span class="lnr lnr-cross-circle"></span></a>-->
-        </div>
-        <!-- /Отдельный класс товара -->
+                <!--            <a href="#" data-id="1" class="do-link-remove-from-saved"><span class="lnr lnr-cross-circle"></span></a>-->
+            </div>
+            <!-- /Отдельный класс товара -->
         <?php endforeach; ?>
 
     </div>
@@ -47,6 +48,24 @@
         $("#a-menu").css("display", "flex");
         $("html").css("overflow-y", "hidden");
         $(".alpha-menu").css("display", "flex");
+
+        $.ajax({
+            type: "POST",
+            data: {
+                "section": true
+            },
+            success: function (reply) {
+                console.log(reply);
+//                var json = JSON.parse(reply);
+//                if  (json.current) {
+//                    window.location.href = "/me";
+//                }
+//                if  (!json.current) {
+//                    $(".error-login").css("display","block");
+//                }
+            }
+        });
+
     });
 
     $("#close-alpha").on("click", function () {

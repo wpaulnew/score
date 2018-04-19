@@ -15,15 +15,6 @@ class OrderController extends Controller
             $this->redirect("http://" . DEFAULT_LINK . "/login");
         }
 
-        /**
-         * Здесь я просто жду кнопки подтверждение заказа,
-         * создаю ключ по времени клика
-         * добавляю товар к себе, у пользователя удаляю
-         * сесию, и кидаю его обравно к себе в /me
-         * и там будут отображаться его заказы с их
-         * статусом
-         */
-
         if ($this->isAjax()) {
             if (Post::verification("understand")) {
 
