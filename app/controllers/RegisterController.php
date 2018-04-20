@@ -11,6 +11,10 @@ class RegisterController extends Controller
 {
     public function indexAction()
     {
+        if (Session::isSession("id")) {
+            $this->redirect("http://" . DEFAULT_LINK . "/me");
+        }
+
         if ($this->isAjax()) {
 
             $register = new Register();

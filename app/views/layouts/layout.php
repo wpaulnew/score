@@ -134,7 +134,7 @@
 
     $(".input-search").keyup(function () {
 
-        if  ($(this).val().length > 3) {
+        if  ($(this).val().length >= 1) {
             var text = $('.input-search').val();
 
             $.ajax({
@@ -148,7 +148,7 @@
                     console.log(json);
                     var html = '';
                     $.each(json, function (index, product) {
-                        html += '<div class="product product-roll-product"><div class="product-img"><img src="/public/img/' + product.img + '" alt=""></div><a href="/' + product.category + '/' + product.denomination + '/' + product.id + '" class="product-title"><h4>' + product.appellation + '</h4></a><p class="product-price">' + product.price + '</p></div>';
+                        html += '<div class="product product-roll-product"><div class="product-img"><img src="/public/img/' + product.img + '" alt=""></div><a href="/product/' + product.id + '" class="product-title"><h4>' + product.appellation + '</h4></a><p class="product-price">' + product.price + '</p></div>';
                     });
                     $(".search-menu").html(html);
                 }

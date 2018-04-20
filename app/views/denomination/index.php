@@ -1,7 +1,7 @@
 <div class="product-roll">
-    <header class="product-roll-title">
-        <h3>T SHIRTS</h3>
-    </header>
+<!--    <header class="product-roll-title">-->
+<!--        <h3>T SHIRTS</h3>-->
+<!--    </header>-->
     <div class="product-roll-list">
         <?php foreach ($products as $product) : ?>
             <!-- Отдельный класс товара -->
@@ -33,9 +33,6 @@
             links.push(difference.splice(1));
         });
         var link = "/" + links.join("/");
-
-        // Перенаправляем по ссылке
-//        alert(link);
         window.location.href = link;
     });
 
@@ -55,14 +52,9 @@
                 "section": true
             },
             success: function (reply) {
-                console.log(reply);
-//                var json = JSON.parse(reply);
-//                if  (json.current) {
-//                    window.location.href = "/me";
-//                }
-//                if  (!json.current) {
-//                    $(".error-login").css("display","block");
-//                }
+                var json = JSON.parse(reply);
+                $("#section-a").html('<h4 class="plan-titles">Gender</h4>' + json.genders);
+                $("#section-b").html('<h4 class="plan-titles">Category of goods</h4>' + json.categories);
             }
         });
 

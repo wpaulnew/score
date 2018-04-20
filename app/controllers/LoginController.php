@@ -11,6 +11,10 @@ class LoginController extends Controller
 {
     public function indexAction()
     {
+        if (Session::isSession("id")) {
+            $this->redirect("http://" . DEFAULT_LINK . "/me");
+        }
+
         if ($this->isAjax()) {
             $login = new Login();
             $login->login = Post::get("login");

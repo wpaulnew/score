@@ -1,7 +1,7 @@
 <div class="product-roll">
-    <header class="product-roll-title">
-        <h3>T SHIRTS</h3>
-    </header>
+<!--    <header class="product-roll-title">-->
+<!--        <h3>T SHIRTS</h3>-->
+<!--    </header>-->
     <div class="product-roll-list">
         <?php foreach ($products as $product) : ?>
             <!-- Отдельный класс товара -->

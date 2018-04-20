@@ -44,7 +44,11 @@ return [
 
     // Роутеры для фильтра ["category","denomination"]
     '^men/all$' => 'product/denomination/men/all',
+    '^men/hoodies$' => 'product/denomination/men/hoodies',
+    '^men/cups$' => 'product/denomination/men/cups',
     '^women/all$' => 'product/denomination/women/all',
+    '^women/hoodies$' => 'product/denomination/women/hoodies',
+    '^women/cups$' => 'product/denomination/women/cups',
 
 //    '^men/hoodies/([0-9]+)$' => 'category/test/men/hoodies/$1',
 //    '^men/([0-9]+)$' => 'category/view/men/$1',

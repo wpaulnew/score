@@ -17,7 +17,6 @@ class ProductController extends Controller
 
         if ($this->isAjax()) {
             $menu = new Menu();
-
             $genders = $menu->getAllGenders();
             $categories = $menu->getAllCategories();
 
@@ -56,11 +55,29 @@ class ProductController extends Controller
         $products = $product->getProductsByDenominationAndCategory();
 
         if ($this->isAjax()) {
-//            $menu = new Menu();
-//            $men = $menu->getAllCategoryWithGenderMen();
-//            var_dump($men);
-            echo "1";
-            exit();
+            $menu = new Menu();
+            $genders = $menu->getAllGenders();
+            $categories = $menu->getAllCategories();
+
+            $listOfGender = "";
+            foreach ($genders as $index => $value) {
+                $listOfGender .= "<input type='radio' name='gender' id='{$value["forwhat"]}' value='{$value["title"]}'><label class='basic-label four col' for='{$value["forwhat"]}'>{$value["title"]}</label>";
+            }
+
+            $listOfCategories = "";
+            foreach ($categories as $index => $value) {
+                $listOfCategories .= "<input type='radio' name='denomination' id='{$value["forwhat"]}' value='{$value["title"]}'><label class='monthly-label four col' for='{$value["forwhat"]}'>{$value["title"]}</label>";
+            }
+
+            $exit = [
+                "genders" => [
+                    $listOfGender
+                ],
+                "categories" => [
+                    $listOfCategories
+                ]
+            ];
+            exit(json_encode($exit));
         }
 
         $this->view->menu = "alpha";

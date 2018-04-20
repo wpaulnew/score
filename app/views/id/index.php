@@ -2,16 +2,16 @@
     <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="do-link-back"><span class="lnr lnr-arrow-left"></span></a>
     <a href="/"><img src="/public/img/l.mini.png" alt=""></a>
     <div class="bookmark-group">
-        <?php if ($reply["saved"]) : ?>
-            <a href="<?= $reply["id"] ?>" id="remove-from-saved" class="do-link-bookmark svg-bold"><span
-                        class="lnr lnr-bookmark"></span></a>
-            <a href="<?= $reply["id"] ?>" id="add-to-saved" style="display: none;" class="do-link-bookmark"><span
-                        class="lnr lnr-bookmark"></span></a>
-        <?php else : ?>
-            <a href="<?= $reply["id"] ?>" id="add-to-saved" class="do-link-bookmark"><span
-                        class="lnr lnr-bookmark"></span></a>
-            <a href="<?= $reply["id"] ?>" id="remove-from-saved" style="display: none;"
-               class="do-link-bookmark svg-bold"><span class="lnr lnr-bookmark"></span></a>
+        <?php if (isset($_SESSION["id"])) : ?>
+            <?php if ($reply["saved"]) : ?>
+                <a href="<?= $reply["id"] ?>" id="remove-from-saved" class="do-link-bookmark svg-bold"><span class="lnr lnr-bookmark"></span></a>
+                <a href="<?= $reply["id"] ?>" id="add-to-saved" style="display: none;" class="do-link-bookmark"><span class="lnr lnr-bookmark"></span></a>
+            <?php else : ?>
+                <a href="<?= $reply["id"] ?>" id="add-to-saved" class="do-link-bookmark"><span class="lnr lnr-bookmark"></span></a>
+                <a href="<?= $reply["id"] ?>" id="remove-from-saved" style="display: none;" class="do-link-bookmark svg-bold"><span class="lnr lnr-bookmark"></span></a>
+            <?php endif; ?>
+        <?php else: ?>
+            <a href="/login" class="do-link-bookmark"><span class="lnr lnr-bookmark"></span></a>
         <?php endif; ?>
     </div>
 </div>
@@ -35,14 +35,23 @@
 </div>
 
 <div class="product-order-menu">
-    <?php if ($incart) : ?>
-        <button class="btn-add-to-cart btn-none-active" disabled><span
-                    class="lnr lnr-checkmark-circle span-none-active"></span></button>
-    <?php else : ?>
-        <button class="btn-add-to-cart" data-id="<?= $reply["id"] ?>" id="add-to-cart">ADD TO CART</button>
+    <?php if (isset($_SESSION["id"])) : ?>
+        <?php if ($incart) : ?>
+            <button class="btn-add-to-cart btn-none-active" disabled><span
+                        class="lnr lnr-checkmark-circle span-none-active"></span></button>
+        <?php else : ?>
+            <button class="btn-add-to-cart" data-id="<?= $reply["id"] ?>" id="add-to-cart">ADD TO CART</button>
+        <?php endif; ?>
+    <?php else: ?>
+        <button class="btn-add-to-cart" id="link-to-login">ADD TO CART</button>
     <?php endif; ?>
 </div>
 
+<script>
+    $("#link-to-login").click(function () {
+        window.location.href = "/login";
+    });
+</script>
 <script>
     $("#add-to-saved").on("click", function (e) {
         e.preventDefault();
