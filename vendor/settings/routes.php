@@ -56,6 +56,9 @@ return [
 //    '^women$' => 'category/index',
 //    '^accessories$' => 'category/index',
 
+    '^request/api$' => 'request/index',
+
+
     '^home/rename$' => 'home/rename',
     '^home/update$' => 'home/update',
     '^home/gets$' => 'home/gets',

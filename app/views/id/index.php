@@ -1,4 +1,4 @@
-<div class="header-control-elements another-menu">
+<div class="header-control-elements border-for-header another-menu">
     <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="do-link-back"><span class="lnr lnr-arrow-left"></span></a>
     <a href="/"><img src="/public/img/l.mini.png" alt=""></a>
     <div class="bookmark-group">
@@ -17,7 +17,10 @@
 </div>
 
 <script>
-    $(".header").html($(".header-control-elements"))
+    $(".header").removeClass("header").addClass("header-default");
+</script>
+<script>
+    $(".header-default").append($(".header-control-elements"))
 </script>
 
 <div class="product-info">
@@ -102,3 +105,4 @@
         });
     });
 </script>
+

@@ -31,7 +31,6 @@ body {
 
     position: fixed;
     width: 100%;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background: #ffffff;
 }
@@ -120,6 +119,7 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -320,7 +320,6 @@ body {
 .cart-product {
     width: 100%;
     padding: 0 15px 0 15px;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -378,6 +377,7 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -404,7 +404,17 @@ body {
     cursor: pointer;
     outline: none;
 }
-
+.btn-order-understand {
+    height: 28px;
+    width: 300px;
+    border-radius: 28px;
+    background: #ffffff;
+    border: solid 1px #2196F3;
+    color: #2196F3;
+    font-size: 0.7em;
+    cursor: pointer;
+    outline: none;
+}
 /* /FIXED CHECKOUT */
 /* ALPHA MENU */
 .alpha-menu {
@@ -437,7 +447,6 @@ body {
 .alpha-button {
     width: 100%;
     padding: 0 15px 0 15px;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: auto 0 78px 0;
     display: -webkit-box;
@@ -540,7 +549,6 @@ body {
     cursor: pointer;
     border: 1px solid #2196f3;
     border-radius: 4px;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -632,6 +640,7 @@ body {
     flex-direction: row;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -ms-flex-line-pack: start;
     align-content: flex-start;
 
     padding: 15px 15px 0 15px;
@@ -921,4 +930,37 @@ body {
 
 .span-none-active {
     color: rgba(167, 167, 167, 0.75);
+}
+
+/* Regulations */
+.regulations {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 15px 0 15px;
+}
+.regulations-text {
+    width: 300px;
+}
+/* /Regulations */
+.header-default {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    height: auto;
+    /* background: #F2F2F2; */
+    border: none;
+    z-index: 2;
+    border-bottom: solid 1px #f3f3f3;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+.border-for-header {
+    border-bottom: solid 1px #f3f3f3;
 }

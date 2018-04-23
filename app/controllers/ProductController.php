@@ -88,8 +88,6 @@ class ProductController extends Controller
 
     public function viewAction($id)
     {
-        $this->view->menu = "opened";
-
         $product = new Product();
         $product->id = $id;
         $reply = $product->getProductById();
@@ -111,6 +109,7 @@ class ProductController extends Controller
             }
         }
 
+        $this->view->menu = "opened";
         $this->view->render("id/index", [
             "reply" => $reply,
             "incart" => $incart
