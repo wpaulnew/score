@@ -50,6 +50,12 @@
     <?php endif; ?>
 </div>
 
+<div class="description-of-product">
+    <div class="description-of-product-text">
+        <p><?= $reply["description"] ?></p>
+    </div>
+</div>
+
 <script>
     $("#link-to-login").click(function () {
         window.location.href = "/login";

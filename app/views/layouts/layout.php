@@ -78,7 +78,12 @@
         <?php else : ?>
             <a href="/login" class="do-menu-link"><span class="lnr lnr-user do-menu-icon"></span></a>
         <?php endif; ?>
-        <a href="/cart" class="do-menu-link"><span class="lnr lnr-cart do-menu-icon"></span></a>
+
+        <?php if (\vendor\libs\Session::isSession("id")) : ?>
+            <a href="/cart" class="do-menu-link"><span class="lnr lnr-cart do-menu-icon"></span></a>
+        <?php else : ?>
+            <a href="/login" class="do-menu-link"><span class="lnr lnr-cart do-menu-icon"></span></a>
+        <?php endif; ?>
     </div>
 </div>
 
@@ -160,6 +165,21 @@
 </script>
 <!-- /SEARCH MENU -->
 <script>var DEFAULT_LINK = "192.168.0.89";</script>
+<!-- ACTIVE-LINK -->
+<script>
+    $(document).ready(function(){
+        $('.fixed-menu-elements a').each(function () {
+            var location = window.location.href;
+            var link = this.href;
+            console.log(link);
+            if(location == link) {
+                console.log("active", link);
+//                $(this).addClass('active');
+            }
+        });
+    });
+</script>
+<!-- /ACTIVE-LINK -->
 <?php
 foreach ($scripts as $script) {
     echo $script;

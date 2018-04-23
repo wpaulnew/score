@@ -25,7 +25,7 @@ class Product extends Model
     // Получаем информацию о продукте
     public function getProductById()
     {
-        return $this->getRow("SELECT `id`,`appellation`,`denomination`,`category`,`img`,`price` FROM `products` WHERE id = ?", [$this->id]);
+        return $this->getRow("SELECT `id`,`appellation`,`denomination`,`category`,`img`,`price`, `description` FROM `products` WHERE id = ?", [$this->id]);
     }
 
     public function getListOfProductsByCategory()

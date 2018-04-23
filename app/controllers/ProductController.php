@@ -92,6 +92,8 @@ class ProductController extends Controller
         $product->id = $id;
         $reply = $product->getProductById();
 
+        if ($reply) {
+
         $saved = new Saved();
         $saved->product = $id;
         $bookmark = $saved->getProductById();
@@ -110,10 +112,13 @@ class ProductController extends Controller
         }
 
         $this->view->menu = "opened";
-        $this->view->render("id/index", [
-            "reply" => $reply,
-            "incart" => $incart
-        ]);
+
+            $this->view->render("id/index", [
+                "reply" => $reply,
+                "incart" => $incart
+            ]);
+        }
+        $this->view->render("id/error");
     }
 
 }
