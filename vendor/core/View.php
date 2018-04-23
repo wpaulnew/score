@@ -26,7 +26,16 @@ class View
     {
         extract($params);
         ob_start();
-        require_once(VIEWS . '/' . $template . '.php');
+
+        $file = (VIEWS . '/' . $template . '.php');
+
+        if (is_file($file)) {
+            require_once($file);
+        }else{
+//            $file = (VIEWS . '/' . $template . '.html');
+//            require_once($file);
+            set_include_path(VIEWS . '/' . $template);
+        }
 //        require_once(VIEWS . '/' . $template . '.php');
         return ob_get_clean();
     }

@@ -1,14 +1,13 @@
-.idea
-localhost.sql
+# See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-app/views/admin/panel/node_modules
+/node_modules
 
 # testing
-app/views/admin/panel//coverage
+/coverage
 
 # production
-app/views/admin/panel//build
+/build
 
 # misc
 .DS_Store

@@ -3,17 +3,12 @@
 return [
 
     // АДМИНКА
-    /*
-    'admin/contacts' => 'admin/instrument/contacts',
-    'admin/comments/([0-9]+)/remove' => 'admin/comments/remove/$1',
-    'admin/comments/([0-9]+)' => 'admin/comments/index/$1',
-    'admin/remove/([0-9]+)' => 'admin/instrument/remove/$1',
-    'admin/edit/([0-9]+)' => 'admin/instrument/edit/$1',
-    'admin/add' => 'admin/instrument/add',
-    'admin/exit' => 'admin/instrument/exit',
-    'admin/home' => 'admin/instrument/index',
-    'admin' => 'admin/instrument/index',
-    */
+
+    'admin/panel' => 'admin/panel/index',
+    'admin/exit' => 'admin/login/exit',
+    'admin/login' => 'admin/login/index',
+    'admin' => 'admin/panel/index',
+
     '^register$' => 'register/index',
     '^login$' => 'login/index',
 
