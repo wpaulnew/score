@@ -4,10 +4,7 @@ return [
 
     // АДМИНКА
 
-    'admin/panel' => 'admin/panel/index',
-    'admin/exit' => 'admin/login/exit',
-    'admin/login' => 'admin/login/index',
-    'admin' => 'admin/panel/index',
+    'admin' => 'admin/instrumental/index',
 
     '^register$' => 'register/index',
     '^login$' => 'login/index',
