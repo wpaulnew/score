@@ -4,7 +4,14 @@ return [
 
     // АДМИНКА
 
-    'admin' => 'admin/instrumental/index',
+    'admin/clients' => 'admin/clients/index',
+    'admin/products' => 'admin/products/index',
+    'admin/orders' => 'admin/orders/index',
+
+    'admin/home' => 'admin/home/index',
+
+    'admin/login' => 'admin/login/index',
+    'admin' => 'admin/login/index',
 
     '^register$' => 'register/index',
     '^login$' => 'login/index',

@@ -20,6 +20,7 @@ class RegisterController extends Controller
             $register = new Register();
             $register->name = Post::get("name");
             $register->login = Post::get("login");
+            $register->number = Post::get("number");
             $register->email = Post::get("email");
             $register->password = Post::get("password");
 
@@ -36,7 +37,7 @@ class RegisterController extends Controller
             Session::create("id", $information["id"]);
             Session::create("name", $information["name"]);
             $exit = [
-                "corrent" => true,
+                "correct" => true,
             ];
             exit(json_encode($exit));
         }

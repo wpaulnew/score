@@ -9,6 +9,7 @@ class Register extends Model
     public $id;
     public $name;
     public $login;
+    public $number;
     public $email;
     public $password;
 
@@ -43,6 +44,6 @@ class Register extends Model
 
     // Записываем данные пользователя в базу
     public function register() {
-        return $this->insertRow("INSERT INTO `clients`(`name`, `login`, `email`, `password`) VALUES (?, ?, ?, ?)", [$this->name, $this->login, $this->email, $this->password]);
+        return $this->insertRow("INSERT INTO `clients`(`name`, `login`, `number`,`email`, `password`) VALUES (?, ?, ?, ?, ?)", [$this->name, $this->login, $this->number,$this->email, $this->password]);
     }
 }

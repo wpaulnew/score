@@ -171,9 +171,9 @@
         $('.fixed-menu-elements a').each(function () {
             var location = window.location.href;
             var link = this.href;
-            console.log(link);
+//            console.log(link);
             if(location == link) {
-                console.log("active", link);
+//                console.log("active", link);
 //                $(this).addClass('active');
             }
         });

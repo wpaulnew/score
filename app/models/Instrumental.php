@@ -49,4 +49,65 @@ class Instrumental extends Model
 //        print_r($ordersOfClients);
         return $ordersOfClients;
     }
+
+    /**
+     * Ставит товар в статус "отправлен"
+     * на стороне пользователя
+     */
+    public function moveProduct($id)
+    {
+        $this->updateRow("
+            UPDATE `cart` 
+            SET`processed`=1 
+            WHERE `client` = {$id} 
+        ");
+    }
+
+    public function getAll()
+    {
+        $clients = $this->getRows("
+            SELECT * 
+            FROM `clients`
+        ");
+        echo "<pre>";
+        $ordersOfClients = [];
+
+        foreach ($clients as $client) {
+            $orders = $this->getRows("
+                SELECT `code`
+                FROM `cart`
+                WHERE `client` = {$client['id']}
+            ");
+            if ($orders) {
+                $client["orders"] = $orders;
+                array_push($ordersOfClients, $client);
+            }
+
+        }
+        $differentBooking = [];
+        foreach ($ordersOfClients as $order) {
+//            print_r($order["orders"]);
+//            foreach ($order["orders"] as $key => $value) {
+//                if (in_array($key, $order["orders"])) {
+//                    unset($order["orders"]);
+//                }
+//            }
+            foreach ($order["orders"] as $key => $value) {
+//                $differentBooking[] = $value;
+                if (isset($value)) {
+//                    echo $value["code"] . "<br />";
+                    $differentBooking[] = $value["code"];
+                }
+
+//
+//            print_r(array_values($order["orders"]));
+//            $result = array_unique($differentBooking);
+            }
+
+//            print_r($differentBooking);
+        }
+        // Сдесь есть только ключи товаров
+        $codesOfBooking = array_values(array_unique($differentBooking));
+        print_r($ordersOfClients);
+    }
 }

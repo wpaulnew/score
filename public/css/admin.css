@@ -1,0 +1,125 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #F9F9F9;
+}
+
+.orders {
+    margin-bottom: 10px;
+    background: #ffffff;
+}
+
+.client-info {
+    /*border: solid 1px #212121;*/
+    /*padding: 10px;*/
+}
+
+.client-info-list {
+    display: flex;
+    padding: 0 10px 0 10px;
+    justify-content: space-between;
+    border-bottom: solid 1px #fafafa;
+}
+
+.client-info-name {
+    font-size: 0.9em;
+}
+
+.client-info-number {
+    font-size: 0.9em;
+}
+
+.client-info-email {
+    font-size: 0.9em;
+}
+
+.client-orders {
+    /*border: solid 1px #ff9662;*/
+    padding: 0 10px 0 10px;
+}
+
+.btn-move {
+    border: none;
+    background: #ffffff;
+    color: #2196f3;
+    padding: 0;
+    cursor: pointer;
+}
+
+.client-order {
+    /*border: solid 1px cornflowerblue;*/
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 14px 10px 10px 10px;
+}
+
+.order-control-btns {
+    padding: 0 10px 0 10px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-top: solid 1px #fafafa;
+}
+.client-order-img {
+    width: 60px;
+    height: auto;
+}
+
+.client-order-title {
+    margin: 0 0 0 11px;
+}
+
+.client-order-status {
+
+}
+
+#root {
+    height: 100%;
+    margin-bottom: 60px;
+}
+
+.app {
+    width: 100%;
+    height: 100%;
+}
+
+.bottom-menu {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 52px;
+    border-top: solid 1px #d8d8d8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+}
+
+.bottom-menu-link {
+    list-style: none;
+}
+
+.bottom-menu-link a {
+    margin: 0 11px 0 11px;
+    text-decoration: none;
+    color: #212121;
+}
+
+.orders-container {
+    padding-bottom: 60px;
+}
+.admin-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 52px;
+}

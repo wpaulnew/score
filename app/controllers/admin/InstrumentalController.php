@@ -22,6 +22,22 @@ class InstrumentalController extends Controller
             ];
             exit(json_encode($exit));
         }
+
+        if (Post::verification("move")) {
+            $instrumental = new Instrumental();
+            $instrumental->moveProduct(Post::get("move"));
+            $orders = $instrumental->getAllClientsOrders();
+            $exit = [
+                "orders" => $orders,
+            ];
+            exit(json_encode($exit));
+//            $orders = $instrumental->getAllClientsOrders();
+//            $exit = [
+//                "orders" => $orders,
+//            ];
+//            exit(json_encode($exit));
+        }
+
 //        require(VIEWS . "/admin/core1/index.html");
         return true;
     }
