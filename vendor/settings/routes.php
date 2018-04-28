@@ -4,6 +4,8 @@ return [
 
     // АДМИНКА
 
+    'admin/products/edit' => 'admin/products/edit',
+
     'admin/clients' => 'admin/clients/index',
     'admin/products' => 'admin/products/index',
     'admin/orders' => 'admin/orders/index',

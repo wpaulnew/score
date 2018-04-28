@@ -24,7 +24,7 @@
 
 <div class="wrapper">
 <!--    <div class="header">-->
-<!--        --><?php //require_once(VIEWS . "/components/menu/{$menu}.php") ?>
+        <?php require_once(VIEWS . "/components/menu/{$menu}.php") ?>
 <!--    </div>-->
     <div class="content">
         <?php echo $content; ?>
@@ -33,7 +33,6 @@
         <?php require_once(VIEWS . "/components/footer/{$footer}.php") ?>
     </div>
 </div>
-
 
 <script src="/public/js/jquery.min.js"></script>
 <script src="/public/js/main.js"></script>
