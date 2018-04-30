@@ -54,6 +54,21 @@ class Product extends Model
 
     }
 
+    public function addProduct() {
+        $this->insertRow("
+            INSERT INTO `products` (`appellation`,`denomination`,`category`,`img`,`price`,`description`)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ",[
+            $this->appellation,
+            $this->denomination, // gender
+            $this->category,
+            $this->img,
+            $this->price,
+            $this->description
+        ]);
+        return true;
+    }
+
     // Получаем информацию о продукте
     public function getProductById()
     {

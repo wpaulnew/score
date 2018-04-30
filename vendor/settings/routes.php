@@ -7,6 +7,7 @@ return [
     'admin/products/edit' => 'admin/products/edit',
 
     'admin/clients' => 'admin/clients/index',
+    'admin/products/add' => 'admin/products/add',
     'admin/products' => 'admin/products/index',
     'admin/orders' => 'admin/orders/index',
 

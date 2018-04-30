@@ -40,107 +40,109 @@
         </div>
     <?php endforeach; ?>
 
-<script>
-    function edit(id) {
-        $("#btn-edit-" + id).css("display", "none");
-        $("#btn-save-" + id).css("display", "block");
-        $("#btn-close-" + id).css("display", "block");
+    <script>
+        function edit(id) {
+            $("#btn-edit-" + id).css("display", "none");
+            $("#btn-save-" + id).css("display", "block");
+            $("#btn-close-" + id).css("display", "block");
 
-        $(".a-title-" + id).css("display", "none");
-        $("#a-title-" + id).css("display", "block");
-        $(".a-price-" + id).css("display", "none");
-        $("#a-price-" + id).css("display", "block");
+            $(".a-title-" + id).css("display", "none");
+            $("#a-title-" + id).css("display", "block");
+            $(".a-price-" + id).css("display", "none");
+            $("#a-price-" + id).css("display", "block");
 
-        $("#product-img-" + id).css("display", "none");
-        $("#input-file-" + id).css("display", "flex");
+            $("#product-img-" + id).css("display", "none");
+            $("#input-file-" + id).css("display", "flex");
 
-        $("#input-textarea-" + id).css("display", "block");
-    }
-
-    function close(id) {
-        $("#btn-save-" + id).css("display", "none");
-        $("#btn-edit-" + id).css("display", "block");
-        $("#btn-close-" + id).css("display", "none");
-
-        $(".a-title-" + id).css("display", "block");
-        $("#a-title-" + id).css("display", "none");
-        $(".a-price-" + id).css("display", "block");
-        $("#a-price-" + id).css("display", "none");
-
-        $("#product-img-" + id).css("display", "block");
-        $("#input-file-" + id).css("display", "none");
-
-        $("#input-textarea-" + id).css("display", "none");
-    }
-
-    function save(id) {
-    }
-
-    $(".btn-edit").on("click", function () {
-        let id = $(this).attr("data-id");
-        edit(id);
-    });
-
-    $(".btn-close").on("click", function () {
-        let id = $(this).attr("data-id");
-        close(id);
-    });
-
-
-    $(".btn-save").on("click", function () {
-        let id = $(this).attr("data-id");
-        let appellation = $("#a-title-" + id).val();
-        let price = $("#a-price-" + id).val();
-        let description = $("#input-textarea-" + id).val();
-
-        let input = $("#input-file-" + id);
-        let fd = new FormData;
-
-        fd.append('img', input.prop('files')[0]);
-
-        if (input.prop('files')[0] !== undefined) {
-            $.ajax({
-                url: '/admin/products/edit',
-                data: fd,
-                processData: false,
-                contentType: false,
-                type: 'POST',
-                success: function (images) {
-                    console.log("images", images);
-                    $.ajax({
-                        type: 'POST',
-                        url: '/admin/products/edit',
-                        data: {
-                            'id': id,
-                            'appellation': appellation,
-                            'img': images,
-                            'price': price,
-                            'description': description
-                        },
-                        success: function (reply) {
-                            console.log("IMG", reply);
-                        }
-                    });
-                }
-            });
-            return false;
+            $("#input-textarea-" + id).css("display", "block");
         }
 
-        if (input.prop('files')[0] === undefined) {
-            $.ajax({
-                type: 'POST',
-                url: '/admin/products/edit',
-                data: {
-                    'id': id,
-                    'appellation': appellation,
-                    'img': false,
-                    'price': price,
-                    'description': description
-                },
-                success: function (reply) {
-                    console.log("NO IMG", reply);
-                }
-            });
+        function close(id) {
+            $("#btn-save-" + id).css("display", "none");
+            $("#btn-edit-" + id).css("display", "block");
+            $("#btn-close-" + id).css("display", "none");
+
+            $(".a-title-" + id).css("display", "block");
+            $("#a-title-" + id).css("display", "none");
+            $(".a-price-" + id).css("display", "block");
+            $("#a-price-" + id).css("display", "none");
+
+            $("#product-img-" + id).css("display", "block");
+            $("#input-file-" + id).css("display", "none");
+
+            $("#input-textarea-" + id).css("display", "none");
         }
-    });
-</script>
+
+        function save(id) {
+        }
+
+        $(".btn-edit").on("click", function () {
+            let id = $(this).attr("data-id");
+            edit(id);
+        });
+
+        $(".btn-close").on("click", function () {
+            let id = $(this).attr("data-id");
+            close(id);
+        });
+
+
+        $(".btn-save").on("click", function () {
+            let id = $(this).attr("data-id");
+            let appellation = $("#a-title-" + id).val();
+            let price = $("#a-price-" + id).val();
+            let description = $("#input-textarea-" + id).val();
+
+            let input = $("#input-file-" + id);
+            let fd = new FormData;
+
+            fd.append('img', input.prop('files')[0]);
+
+            if (input.prop('files')[0] !== undefined) {
+                $.ajax({
+                    url: '/admin/products/edit',
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (images) {
+                        console.log("images", images);
+                        $.ajax({
+                            type: 'POST',
+                            url: '/admin/products/edit',
+                            data: {
+                                'id': id,
+                                'appellation': appellation,
+                                'img': images,
+                                'price': price,
+                                'description': description
+                            },
+                            success: function (reply) {
+                                console.log("IMG", reply);
+                                location.reload();
+                            }
+                        });
+                    }
+                });
+                return false;
+            }
+
+            if (input.prop('files')[0] === undefined) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/admin/products/edit',
+                    data: {
+                        'id': id,
+                        'appellation': appellation,
+                        'img': false,
+                        'price': price,
+                        'description': description
+                    },
+                    success: function (reply) {
+                        console.log("NO IMG", reply);
+                        location.reload();
+                    }
+                });
+            }
+        });
+    </script>

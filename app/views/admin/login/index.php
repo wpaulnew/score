@@ -5,7 +5,7 @@
         <button id="btn-login">Войти</button>
     </div>
 </div>
-<?php //print_r($_SESSION); ?>
+
 <script>
     $("#btn-login").on("click", function () {
         let login = $("#login").val();
@@ -18,7 +18,7 @@
             },
             success: function(reply){
                 console.log(reply);
-                var json = JSON.parse(reply);
+                let json = JSON.parse(reply);
                 if  (json.current) {
                     window.location.href = "/admin/products";
                 }
