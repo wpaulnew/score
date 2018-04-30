@@ -10,9 +10,9 @@ class ClientsController extends Controller
 {
     public function indexAction()
     {
-//        if (!Session::isSession("id")) {
-//            $this->redirect("http://" . DEFAULT_LINK . "/admin/login");
-//        }
+        if (!Session::isSession("id")) {
+            $this->redirect("http://" . DEFAULT_LINK . "/admin/login");
+        }
 
         $client = new Client();
         $clients = $client->getAllClients();

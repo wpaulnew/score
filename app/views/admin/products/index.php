@@ -39,35 +39,6 @@
             </div>
         </div>
     <?php endforeach; ?>
-    <div class="box">
-        <div class="product-info">
-            <div class="product-info-list">
-                <p class="admin-product-title a-title-2">Road to the Dream V-Shape Logo</p>
-                <input type="text" value="Road to the Dream V-Shape Logo" id="a-title-2" class="admin-input-title">
-
-                <p class="admin-product-price a-price-2">24.40</p>
-                <input type="text" value="24.40" id="a-price-2" class="admin-input-price">
-            </div>
-            <div class="client-orders">
-                <div class="admin-product-box">
-                    <img
-                            src='http://192.168.0.89/public/img/opened.png'
-                            class="admin-product-img"
-                            id="product-img-2"
-                            alt='title'
-                    />
-                    <input type="file" id="input-file-2" class="admin-input-file">
-                    <textarea id="input-textarea-2" class="admin-textarea-description">In honor of the opening of the first hall The road to the dream, a gold collection of joggers with a gold logo and T-shirts with print Legends never die. Ideal for both training and everyday style!</textarea>
-                </div>
-            </div>
-            <div class="box-control-btns">
-                <button id='btn-edit-2' data-id="2" class="btn-edit">Редактировать</button>
-                <button id='btn-close-2' data-id="2" class="btn-close">Закрыть</button>
-                <button id='btn-save-2' data-id="2" class="btn-save">Сохранить</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script>
     function edit(id) {

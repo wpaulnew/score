@@ -13,6 +13,7 @@ return [
     'admin/home' => 'admin/home/index',
 
     'admin/login' => 'admin/login/index',
+    'admin/exit' => 'admin/login/exit',
     'admin' => 'admin/login/index',
 
     '^register$' => 'register/index',
