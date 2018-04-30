@@ -26,6 +26,7 @@ body {
     justify-content: space-around;
     height: 100%;
 }
+
 .admin-menu-link {
     text-decoration: none;
     color: #898989;
@@ -39,6 +40,7 @@ body {
     background: #ffffff;
     border-bottom: solid 1px #f3f3f3;
 }
+
 .admin-products-menu-elements {
     display: flex;
     align-items: center;
@@ -47,6 +49,7 @@ body {
     padding: 0 10px 0 10px;
     justify-content: center;
 }
+
 .admin-product-menu-link {
     color: #2196f3;
     text-decoration: none;
@@ -68,18 +71,6 @@ body {
     border-bottom: solid 1px #fafafa;
 }
 
-.client-info-name {
-    font-size: 0.9em;
-}
-
-.client-info-number {
-    font-size: 0.9em;
-}
-
-.client-info-email {
-    font-size: 0.9em;
-}
-
 .client-orders {
     /*border: solid 1px #ff9662;*/
     padding: 0 10px 0 10px;
@@ -93,14 +84,6 @@ body {
     cursor: pointer;
 }
 
-.client-order {
-    /*border: solid 1px cornflowerblue;*/
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 14px 10px 10px 10px;
-}
-
 .order-control-btns {
     padding: 0 10px 0 10px;
     height: 40px;
@@ -108,6 +91,7 @@ body {
     align-items: center;
     border-top: solid 1px #fafafa;
 }
+
 .client-order-img {
     width: 60px;
     height: auto;
@@ -160,6 +144,7 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+
 .admin-footer {
     position: fixed;
     left: 0;
@@ -174,20 +159,25 @@ body {
     margin-bottom: 10px;
     background: #ffffff;
 }
+
 .product-info {
 
 }
+
 .admin-product-img {
-    width: 50%;
-    height: auto;
+    width: auto;
+    height: 218.5px;
 }
+
 .admin-product-title {
     color: #212121;
     text-decoration: none;
 }
+
 .admin-product-price {
     color: #2196f3;
 }
+
 .admin-product-box {
     display: flex;
     flex-direction: column;
@@ -195,6 +185,7 @@ body {
     margin: 10px 0 10px 0;
     height: 218.5px;
 }
+
 .box-control-btns {
     display: flex;
     align-items: center;
@@ -203,6 +194,7 @@ body {
     padding: 0 10px 0 10px;
     border-top: solid 1px #f3f3f3;
 }
+
 .product-info-list {
     display: flex;
     border-bottom: solid 1px #f3f3f3;
@@ -211,6 +203,7 @@ body {
     padding: 0 10px 0 10px;
     height: 40px;
 }
+
 .btn-edit {
     border: none;
     background: #ffffff;
@@ -218,6 +211,7 @@ body {
     padding: 0;
     cursor: pointer;
 }
+
 .btn-save {
     border: none;
     background: #ffffff;
@@ -226,31 +220,87 @@ body {
     cursor: pointer;
     display: none;
 }
+
+.btn-close {
+    border: none;
+    background: #ffffff;
+    color: #2196f3;
+    padding: 0;
+    cursor: pointer;
+    display: none;
+}
+
 .admin-input-title {
     display: none;
 }
+
 .admin-input-price {
     display: none;
     width: 60px;
 }
+
 .admin-input-file {
     display: none;
     margin: 10px 0 10px 0;
 }
+
 .admin-textarea-description {
     display: none;
     width: 100%;
     margin: 10px 0 10px 0;
     height: 148.5px;
 }
+
 @media screen and (max-width: 960px) {
     .box {
         width: 50%;
     }
 }
+
 @media screen and (max-width: 720px) {
     .box {
         width: 100%;
     }
 }
+
+/* /ORDERS */
+/* CLIENTS */
+.client-statistics {
+    /*border: solid 1px cornflowerblue;*/
+    display: flex;
+    align-items: center;
+    height: 80px;
+    justify-content: center;
+}
+
+.client-statistics-title {
+
+}
+
+.client-info-name {
+    font-size: 0.9em;
+}
+
+.client-info-id {
+    font-size: 0.9em;
+}
+
+.client-info-number {
+    font-size: 0.9em;
+}
+
+.client-info-email {
+    font-size: 0.9em;
+}
+
+/* /CLIENTS */
+/* ORDERS */
+.client-orders {
+
+}
+.client-order {
+    display: flex;
+    align-items: center;
+}
+
 /* /ORDERS */

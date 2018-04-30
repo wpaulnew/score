@@ -86,12 +86,7 @@ class Instrumental extends Model
         }
         $differentBooking = [];
         foreach ($ordersOfClients as $order) {
-//            print_r($order["orders"]);
-//            foreach ($order["orders"] as $key => $value) {
-//                if (in_array($key, $order["orders"])) {
-//                    unset($order["orders"]);
-//                }
-//            }
+
             foreach ($order["orders"] as $key => $value) {
 //                $differentBooking[] = $value;
                 if (isset($value)) {
@@ -99,15 +94,10 @@ class Instrumental extends Model
                     $differentBooking[] = $value["code"];
                 }
 
-//
-//            print_r(array_values($order["orders"]));
-//            $result = array_unique($differentBooking);
+                // Сдесь есть только ключи товаров
+                $codesOfBooking = array_values(array_unique($differentBooking));
+                print_r($ordersOfClients);
             }
-
-//            print_r($differentBooking);
         }
-        // Сдесь есть только ключи товаров
-        $codesOfBooking = array_values(array_unique($differentBooking));
-        print_r($ordersOfClients);
     }
 }

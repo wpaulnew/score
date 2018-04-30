@@ -6,7 +6,7 @@
                 <p class="client-info-number">number</p>
                 <p class="client-info-email">email</p>
             </div>
-            <div key={order.id} class="client-orders">
+            <div class="client-orders">
                 <div class="client-order">
                     <img
                             src='http://192.168.0.89/public/img/product.png'

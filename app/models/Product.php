@@ -19,8 +19,40 @@ class Product extends Model
     public $price;
     public $category;
     public $ended = 0;
+    public $description;
 
     private $table = "products";
+
+    public function updateProductInformation() {
+
+        if ($this->img === false) {
+           echo "==";
+            $this->updateRow("
+            UPDATE `products`
+            SET `appellation` = ?, `price` = ?, `description` = ?
+            WHERE `id` = ?
+        ",[
+                $this->appellation,
+                $this->price,
+                $this->description,
+                $this->id
+            ]);
+        }else{
+            echo "!=";
+            $this->updateRow("
+            UPDATE `products`
+            SET `appellation` = ?, `img` =?, `price` = ?, `description` = ?
+            WHERE `id` = ?
+        ",[
+                $this->appellation,
+                $this->img,
+                $this->price,
+                $this->description,
+                $this->id
+            ]);
+        }
+
+    }
 
     // Получаем информацию о продукте
     public function getProductById()

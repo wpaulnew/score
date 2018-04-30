@@ -2,6 +2,7 @@
 
 namespace app\controllers\admin;
 
+use app\models\Orders;
 use vendor\core\Controller;
 use vendor\libs\Session;
 
@@ -13,12 +14,14 @@ class OrdersController extends Controller
 //            $this->redirect("http://" . DEFAULT_LINK . "/admin/login");
 //        }
 
-
+        $orders = new Orders();
+//        echo "<pre>";
+        $orders->getAllOrders();
 
         $this->view->layout = "admin";
         $this->view->menu = "admin";
         $this->view->footer = "admin";
-        $this->view->render('admin/orders/index');
+//        $this->view->render('admin/orders/index');
         return true;
     }
 }

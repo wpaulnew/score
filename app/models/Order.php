@@ -24,6 +24,16 @@ class Order extends Model
         return true;
     }
 
+    public function getOrderByCode() {
+        return $this->getRows("
+            SELECT *
+            FROM `cart`
+            WHERE `code` = ?
+        ", [
+            $this->code
+        ]);
+    }
+
     // Генирирует ключ заказа
     public function generateCode() {
         $d = date("d");

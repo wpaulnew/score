@@ -1,23 +1,21 @@
 <div class="box-container">
+    <?php foreach ($clients as $client) : ?>
     <div class="box">
         <div class="client-info">
             <div class="client-info-list">
-                <p class="client-info-name">name</p>
-                <p class="client-info-number">number</p>
-                <p class="client-info-email">email</p>
+                <p class="client-info-id"><?=$client["id"]?></p>
+                <p class="client-info-name"><?=$client["name"]?></p>
             </div>
-            <div key={order.id} class="client-orders">
-                <div class="client-order">
-                    <img
-                            src='http://192.168.0.89/public/img/product.png'
-                            class="client-order-img"
-                            alt='title'/>
-                    <p class="client-order-title">1123</p>
+            <div class="client-orders">
+                <div class="client-statistics">
+                    <p class="client-statistics-title">Статистика</p>
                 </div>
             </div>
-            <div class="order-control-btns">
-                <button id='1' class="btn-move">Подтвердить отправку</button>
+            <div class="client-info-list">
+                <p class="client-info-number">+<?=$client["number"]?></p>
+                <p class="client-info-email"><?=$client["email"]?></p>
             </div>
         </div>
     </div>
+    <?php endforeach; ?>
 </div>
