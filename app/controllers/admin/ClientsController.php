@@ -3,6 +3,8 @@
 namespace app\controllers\admin;
 
 use app\models\Client;
+use app\models\Order;
+use app\models\Orders;
 use vendor\core\Controller;
 use vendor\libs\Session;
 

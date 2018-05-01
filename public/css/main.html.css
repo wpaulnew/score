@@ -148,10 +148,7 @@ body {
     background-image: url("http://192.168.0.89/public/img/main.jpg");
     width: 100%;
     min-height: 211px;
-    height: 211px;
-    -moz-background-size: 100%; /* Firefox 3.6+ */
-    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
-    -o-background-size: 100%; /* Opera 9.6+ */
+    height: 211px; /* Firefox 3.6+ */ /* Safari 3.1+ и Chrome 4.0+ */ /* Opera 9.6+ */
     /*height: 100%;*/
     background-size: cover; /* Фон занимает всю доступную площадь */
 }
@@ -409,6 +406,7 @@ body {
     cursor: pointer;
     outline: none;
 }
+
 .btn-order-understand {
     height: 28px;
     width: 300px;
@@ -420,6 +418,7 @@ body {
     cursor: pointer;
     outline: none;
 }
+
 /* /FIXED CHECKOUT */
 /* ALPHA MENU */
 .alpha-menu {
@@ -948,9 +947,11 @@ body {
     display: flex;
     padding: 0 15px 0 15px;
 }
+
 .regulations-text {
     width: 300px;
 }
+
 /* /Regulations */
 .header-default {
     -webkit-box-flex: 0;
@@ -966,6 +967,7 @@ body {
     box-sizing: border-box;
     background: #ffffff;
 }
+
 .border-for-header {
     border-bottom: solid 1px #f3f3f3;
 }
@@ -980,9 +982,11 @@ body {
     margin: 20px 0 0 0;
     padding: 0 15px 0 15px;
 }
+
 .description-of-product-text {
     width: 300px;
 }
+
 .description-of-product-text p:first-letter {
     font-size: 1.3em;
     font-weight: bold;

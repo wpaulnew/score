@@ -15,13 +15,15 @@ class OrdersController extends Controller
         }
 
         $orders = new Orders();
-//        echo "<pre>";
-        $orders->getAllOrders();
+
+        $booking = $orders->getAllOrders();
 
         $this->view->layout = "admin";
         $this->view->menu = "admin";
         $this->view->footer = "admin";
-//        $this->view->render('admin/orders/index');
+        $this->view->render('admin/orders/index',[
+            "booking" => $booking
+        ]);
         return true;
     }
 }

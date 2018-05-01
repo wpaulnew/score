@@ -21,8 +21,13 @@ body {
 }
 
 .admin-footer-menu-elements {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
     height: 100%;
 }
@@ -33,6 +38,8 @@ body {
 }
 
 .admin-products-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 58px;
     width: 100%;
@@ -42,11 +49,17 @@ body {
 }
 
 .admin-products-menu-elements {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 100%;
     height: 100%;
     padding: 0 10px 0 10px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -65,8 +78,12 @@ body {
 }
 
 .client-info-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding: 0 10px 0 10px;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     border-bottom: solid 1px #fafafa;
 }
@@ -87,7 +104,11 @@ body {
 .order-control-btns {
     padding: 0 10px 0 10px;
     height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-top: solid 1px #fafafa;
 }
@@ -123,8 +144,14 @@ body {
     bottom: 0;
     height: 52px;
     border-top: solid 1px #d8d8d8;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     background: #ffffff;
 }
@@ -141,7 +168,10 @@ body {
 
 .box-container {
     padding-bottom: 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
@@ -156,6 +186,12 @@ body {
 /* ORDERS */
 .box {
     width: 33.3333333%;
+    margin-bottom: 10px;
+    background: #ffffff;
+}
+
+.d-box {
+    width: 100%;
     margin-bottom: 10px;
     background: #ffffff;
 }
@@ -179,16 +215,29 @@ body {
 }
 
 .admin-product-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin: 10px 0 10px 0;
     height: 218.5px;
 }
 
 .box-control-btns {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     height: 40px;
     padding: 0 10px 0 10px;
@@ -196,9 +245,15 @@ body {
 }
 
 .product-info-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     border-bottom: solid 1px #f3f3f3;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 0 10px 0 10px;
     height: 40px;
@@ -267,9 +322,15 @@ body {
 /* CLIENTS */
 .client-statistics {
     /*border: solid 1px cornflowerblue;*/
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     height: 80px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -299,9 +360,49 @@ body {
 
 }
 
-.client-order {
+.d-client-orders {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+
+.client-order {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.d-client-order {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 10px 0 10px 0;
+    height: auto;
+    width: 50%;
+    -webkit-box-align: center;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 960px) {
+    .d-client-order {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .d-client-orders {
+        padding: 0 15px 0 15px;
+    }
+    .d-client-order {
+        width: 100%;
+        padding: 0 15px 0 15px;
+    }
 }
 
 /* /ORDERS */
@@ -309,8 +410,14 @@ body {
 .admin-login-form {
     width: 100%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -320,8 +427,15 @@ body {
     max-width: 290px;
     background: #FFFFFF;
     height: 170px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -356,23 +470,40 @@ body {
 .container-form-for-add-product {
     width: 100%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding-bottom: 60px;
 }
+
 .form-add {
     width: 400px;
     height: 540px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
+
 .form-add-inputs {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
+
 .form-add-inputs input:nth-child(1) {
     margin-top: 10px;
 }
+
 .form-add-inputs input {
     padding: 20px;
     height: 37.05px;
@@ -381,6 +512,7 @@ body {
     margin-bottom: 10px;
 
 }
+
 #add-product {
     padding: 20px;
     border: none;
@@ -392,14 +524,16 @@ body {
     outline: none;
     margin-bottom: 10px;
 }
-.form-add-inputs select{
+
+.form-add-inputs select {
     padding: 10px;
     height: 90px;
     border: none;
     outline: none;
     margin-bottom: 10px;
 }
-.form-add-inputs textarea{
+
+.form-add-inputs textarea {
     resize: none;
     height: 70px;
     padding: 10px;
@@ -407,4 +541,5 @@ body {
     outline: none;
     margin-bottom: 10px;
 }
+
 /* /ADD */
