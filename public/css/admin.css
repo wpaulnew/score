@@ -101,12 +101,32 @@ body {
     cursor: pointer;
 }
 
+.btn-remove {
+    border: none;
+    background: #ffffff;
+    color: #2196f3;
+    padding: 0;
+    cursor: pointer;
+}
+
 .order-control-btns {
     padding: 0 10px 0 10px;
     height: 40px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top: solid 1px #fafafa;
+}
+.d-order-control-btns {
+    padding: 0 10px 0 10px;
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;

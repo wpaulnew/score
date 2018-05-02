@@ -20,6 +20,7 @@ class OrderController extends Controller
 
                 $order = new Order();
                 $order->client = Session::get("id");
+                // Генириуем код, можно поменять через свойтво width
                 $order->generateCode();
                 $reply = $order->addProductsToOrder(Session::get("products"));
                 Session::remove("products");

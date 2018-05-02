@@ -13,67 +13,6 @@ class Orders extends Model
     public $code;
     public $processed;
 
-    public function getAllOrders1()
-    {
-        $codes = $this->getRows("
-            SELECT `code` 
-            FROM `cart`
-        ");
-        echo "<pre>";
-        $orders = [];
-        foreach ($codes as $index => $value) {
-            $orders[] = $value["code"];
-        }
-
-        /**
-         * Удаляем дубликаты из масива
-         */
-        $clears = array_unique($orders);
-
-        $newCodes = [];
-        foreach ($clears as $clear) {
-            $newCodes[] = $clear;
-        }
-//        print_r($newCodes);
-
-        $clientOrdersByCode = [];
-        $order = new Order();
-        $client = new Client();
-        $product = new Product();
-
-        for ($i = 0; $i < count($newCodes); $i++) {
-            $order->code = $newCodes[$i];
-            $booking = $order->getOrderByCode();
-            $clientOrdersByCode[] = $booking;
-        }
-        $_orders = [];
-        foreach ($clientOrdersByCode as $c => $a) {
-            for ($i = 0; $i < count($clientOrdersByCode[$c]); $i++) {
-                $element = $clientOrdersByCode[$c][$i];
-//                print_r($element);
-            }
-            $_orders[] = $a;
-        }
-//        print_r($_orders);
-
-        for ($i = 0; $i < count($_orders); $i++) {
-            print_r($_orders[$i]);
-        }
-
-        $_orders[] = $a;
-//        foreach ($clientOrdersByCode as $index => $value) {
-//            $client->id = $value["client"];
-//            $product->id = $value["product"];
-//            $value["client"] = $client->getInformationById();
-//            $value["product"] = $product->getProductById();
-//            $_orders[] = $value;
-//        }
-
-//        $orders = array_unique($codes);
-//        print_r($clientOrdersByCode);
-
-    }
-
     public function getOrdersByCode()
     {
         return $this->getRows("
@@ -102,6 +41,7 @@ class Orders extends Model
         $codes = $this->getRows("
             SELECT `code` 
             FROM `cart`
+            WHERE `processed` = 0
         ");
         $keysOfOrders = [];
         foreach ($codes as $index => $value) {
@@ -139,5 +79,25 @@ class Orders extends Model
         }
 //        print_r($booking);
         return $booking;
+    }
+
+    public function removeOrderByCode() {
+        $this->deleteRow("
+            DELETE
+            FROM `cart`
+            WHERE `code` = ?
+        ", [
+            $this->code
+        ]);
+    }
+
+    public function moveOrderByCode() {
+        $this->updateRow("
+            UPDATE `cart`
+            SET `processed` = 1
+            WHERE `code` = ?
+        ",[
+            $this->code
+        ]);
     }
 }

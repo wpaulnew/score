@@ -1,6 +1,6 @@
-<?php //print_r($booking); ?>
+<?php //echo "<pre>";print_r($booking); ?>
 <div class="box-container">
-    <?php foreach ($booking as $index => $book) : ?>
+    <?php foreach ($booking as $book) : ?>
     <div class="d-box">
         <div class="client-info">
             <div class="client-info-list">
@@ -20,10 +20,43 @@
                     </div>
             <?php endforeach; ?>
             </div>
-            <div class="order-control-btns">
-                <button id='<?=$index + 1?>' class="btn-move">Подтвердить отправку</button>
+            <div class="d-order-control-btns">
+                <button id='<?=$order["code"]?>' class="btn-move">Подтвердить</button>
+                <span><?=$order["code"]?></span>
+                <button id='<?=$order["code"]?>' class="btn-remove">Удалить</button>
             </div>
         </div>
     </div>
     <?php endforeach; ?>
 </div>
+
+<script>
+    $(".btn-move").on("click", function () {
+        $.ajax({
+            type: "POST",
+            data: {
+                "move" : $(this).attr("id"),
+            },
+            success: function(reply){
+                let json = JSON.parse(reply);
+                if  (json.correct) {
+                    location.reload();
+                }
+            }
+        });
+    });
+    $(".btn-remove").on("click", function () {
+        $.ajax({
+            type: "POST",
+            data: {
+                "remove" : $(this).attr("id"),
+            },
+            success: function(reply){
+                let json = JSON.parse(reply);
+                if  (json.correct) {
+                    location.reload();
+                }
+            }
+        });
+    });
+</script>

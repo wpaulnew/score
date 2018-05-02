@@ -11,6 +11,13 @@ class Order extends Model
     public $product; // id-product
     public $code; // group order key
     public $processed; // status of order
+
+    /**
+     * width code
+     * @var
+     */
+    public $width = 5;
+
     private $table = "cart";
     /**
      * Добавляем в цыкле из масива products, товары
@@ -40,7 +47,7 @@ class Order extends Model
         $h = date("h");
         $m = date("m");
         $s = date("s");
-        $this->code = md5($d + $h + $m + $s + $this->client);
+        $this->code = substr(md5($d + $h + $m + $s + $this->client), -$this->width);
         return $this->code;
     }
 
