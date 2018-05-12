@@ -23,27 +23,28 @@ class Product extends Model
 
     private $table = "products";
 
-    public function updateProductInformation() {
+    public function updateProductInformation()
+    {
 
         if ($this->img === false) {
-           echo "==";
+            echo "==";
             $this->updateRow("
             UPDATE `products`
             SET `appellation` = ?, `price` = ?, `description` = ?
             WHERE `id` = ?
-        ",[
+        ", [
                 $this->appellation,
                 $this->price,
                 $this->description,
                 $this->id
             ]);
-        }else{
+        } else {
             echo "!=";
             $this->updateRow("
             UPDATE `products`
             SET `appellation` = ?, `img` =?, `price` = ?, `description` = ?
             WHERE `id` = ?
-        ",[
+        ", [
                 $this->appellation,
                 $this->img,
                 $this->price,
@@ -54,11 +55,12 @@ class Product extends Model
 
     }
 
-    public function addProduct() {
+    public function addProduct()
+    {
         $this->insertRow("
             INSERT INTO `products` (`appellation`,`denomination`,`category`,`img`,`price`,`description`)
             VALUES (?, ?, ?, ?, ?, ?)
-        ",[
+        ", [
             $this->appellation,
             $this->denomination, // gender
             $this->category,
@@ -81,7 +83,8 @@ class Product extends Model
     }
 
     // Получаем все продукты от последних добаленых
-    public function getAllProducts() {
+    public function getAllProducts()
+    {
         return $this->getRows("SELECT * FROM $this->table ORDER BY `id` DESC");
     }
 
@@ -96,7 +99,13 @@ class Product extends Model
         }
     }
 
-    public function getProductsByDenominationAndCategory() {
-        return $this->getRows("SELECT * FROM `products` WHERE `denomination` = ? AND `category` = ?", [$this->denomination, $this->category]);
+    public function getProductsByDenominationAndCategory()
+    {
+        return $this->getRows("
+        SELECT * 
+        FROM `products` 
+        WHERE `denomination` = ? AND `category` = ?
+        ", [$this->category, $this->denomination]
+        );
     }
 }

@@ -33,6 +33,7 @@
             links.push(difference.splice(1));
         });
         var link = "/" + links.join("/");
+        console.log(link);
         window.location.href = link;
     });
 

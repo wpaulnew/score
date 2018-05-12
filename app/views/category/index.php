@@ -54,7 +54,7 @@
                 "section": true
             },
             success: function (reply) {
-//                console.log(reply);
+                console.log(reply);
                 var json = JSON.parse(reply);
 //                console.log(json);
                 $("#section-a").html('<h4 class="plan-titles">Gender</h4>' + json.genders);
