@@ -11,7 +11,7 @@
                 </div>
                 <a href="/product/<?php echo $product["id"]; ?>" class="product-title">
                     <h4><?php echo $product["appellation"]; ?></h4></a>
-                <p class="product-price"><?php echo $product["price"]; ?></p>
+                <p class="product-price">$<?php echo $product["price"]; ?></p>
 
                 <!--            <a href="#" data-id="1" class="do-link-remove-from-saved"><span class="lnr lnr-cross-circle"></span></a>-->
             </div>

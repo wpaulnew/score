@@ -8,7 +8,7 @@
         <?php if (isset($_SESSION["id"])) : ?>
             <a href="/me" class="do-link-login"><b><span class="lnr lnr-user"></span></b></a>
         <?php else: ?>
-            <a href="/login" class="do-link-login"><b>LOGIN</b></a>
+            <a href="/login" class="do-link-login"><b>ВОЙТИ</b></a>
         <?php endif; ?>
     </div>
 </div>

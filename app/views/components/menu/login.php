@@ -7,6 +7,6 @@
     </a>
     <!-- К примеру может быть кнопка do-link-delete -->
     <div>
-        <a href="/register" class="do-link-login"><b>REGISTER</b></a>
+        <a href="/register" class="do-link-login"><b>РЕГИСТРАЦИЯ</b></a>
     </div>
 </div>

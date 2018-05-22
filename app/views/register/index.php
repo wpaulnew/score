@@ -5,7 +5,7 @@
         <input type="text" class="input-number" name="number" placeholder="number" value="123456789100">
         <input type="email" class="input-email" name="email" placeholder="email" value="example@gmail.com">
         <input type="password" class="input-password" name="password" placeholder="password" value="password">
-        <button class="btn-register">REGISTER</button>
+        <button class="btn-register">ЗАРЕГИСТРИРОВАТЬСЯ</button>
     </div>
 </div>
 

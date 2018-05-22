@@ -18,6 +18,6 @@
         <!-- Category -->
             <section id="section-b" class="payment-plan cf"></section>
         <!-- /Category -->
-        <input class="submit" id="set-off" type="submit" value="APPLY">
+        <input class="submit" id="set-off" type="submit" value="Искать">
     </form>
 </div>

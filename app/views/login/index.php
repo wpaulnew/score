@@ -3,7 +3,7 @@
         <div class="error-login">Ошибка входа</div>
         <input type="text" class="input-login" name="login" placeholder="login" value="login">
         <input type="1234" class="input-password" name="password" placeholder="password" value="password">
-        <button class="btn-login">LOGIN</button>
+        <button class="btn-login">ВОЙТИ</button>
     </div>
 </div>
 

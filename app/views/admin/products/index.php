@@ -15,7 +15,7 @@
                 <div class="client-orders">
                     <div class="admin-product-box">
                         <img
-                                src='http://192.168.0.89/public/img/<?= $product["img"] ?>'
+                                src='http://<?php echo  DEFAULT_LINK ?>/public/img/<?= $product["img"] ?>'
                                 class="admin-product-img"
                                 id="product-img-<?= $product["id"] ?>"
                                 alt='<?= $product["appellation"] ?>'

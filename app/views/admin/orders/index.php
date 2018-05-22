@@ -12,7 +12,7 @@
                 <?php foreach ($book["orders"] as $order) : ?>
                     <div class="d-client-order">
                         <img
-                                src='http://192.168.0.89/public/img/<?=$order["product"]["img"]?>'
+                                src='http://<?php echo  DEFAULT_LINK ?>/public/img/<?=$order["product"]["img"]?>'
                                 class="client-order-img"
                                 alt='<?=$order["product"]["appellation"]?>'/>
                         <p class="client-order-title"><?=$order["product"]["appellation"]?></p>

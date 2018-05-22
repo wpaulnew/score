@@ -8,6 +8,8 @@
         <?php foreach (\vendor\libs\Session::get("products") as $product) : ?>
             <!-- Отдельный класс товара -->
             <div class="product cart-product">
+                <a href="#" data-id="<?= $product["id"] ?>" class="do-link-remove-fro-cart"><span
+                            class="lnr lnr-cross-circle"></span></a>
                 <div class="product-cart-img">
                     <img src="/public/img/<?= $product["img"] ?>" alt="">
                 </div>
@@ -22,9 +24,6 @@
                     <a href="#" data-id="<?= $product["id"] ?>" class="do-link-minus"><span
                                 class="lnr lnr-circle-minus"></span></a>
                 </div>
-
-                <a href="#" data-id="<?= $product["id"] ?>" class="do-link-remove-fro-cart"><span
-                            class="lnr lnr-cross-circle"></span></a>
             </div>
             <!-- /Отдельный класс товара -->
         <?php endforeach; ?>
@@ -35,9 +34,9 @@
 <div class="fixed-checkout">
     <div class="fixed-checkout-elements">
         <div class="count-total">
-            <span>TOTAL</span><span class="count-total-number"><b><?php echo \app\models\Cart::total() ?></b></span>
+            <span>В ОБЩЕМ</span><span class="count-total-number"><b>$<?php echo \app\models\Cart::total() ?></b></span>
         </div>
-        <button class="btn-checkout">CHECKOUT</button>
+        <button class="btn-checkout">ПРОДОЛЖИТЬ</button>
     </div>
 </div>
 
@@ -77,7 +76,7 @@
                     console.log(reply);
                     var json = JSON.parse(reply);
                     $("#input-count-" + id).val(json.quality);
-                    $(".count-total-number").html("<b>" + json.total + "</b>");
+                    $(".count-total-number").html("<b>$" + json.total + "</b>");
                 }
             });
             return false;
@@ -98,7 +97,7 @@
                     console.log(reply);
                     var json = JSON.parse(reply);
                     $("#input-count-" + id).val(json.quality);
-                    $(".count-total-number").html("<b>" + json.total + "</b>");
+                    $(".count-total-number").html("<b>$" + json.total + "</b>");
                 }
             });
             return false;

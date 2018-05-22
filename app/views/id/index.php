@@ -33,7 +33,7 @@
         <h3><?= $reply["appellation"] ?></h3>
     </div>
     <div class="product-info-price">
-        <p><?= $reply["price"] ?></p>
+        <p>$<?= $reply["price"] ?></p>
     </div>
 </div>
 
@@ -43,10 +43,10 @@
             <button class="btn-add-to-cart btn-none-active" disabled><span
                         class="lnr lnr-checkmark-circle span-none-active"></span></button>
         <?php else : ?>
-            <button class="btn-add-to-cart" data-id="<?= $reply["id"] ?>" id="add-to-cart">ADD TO CART</button>
+            <button class="btn-add-to-cart" data-id="<?= $reply["id"] ?>" id="add-to-cart">Добавить в корзину</button>
         <?php endif; ?>
     <?php else: ?>
-        <button class="btn-add-to-cart" id="link-to-login">ADD TO CART</button>
+        <button class="btn-add-to-cart" id="link-to-login">Добавить в корзину</button>
     <?php endif; ?>
 </div>
 
